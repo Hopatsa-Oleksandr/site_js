@@ -3,14 +3,7 @@ const model = [
   { type: "text", value: "here we go with some text" },
   {
     type: "columns",
-    value: [
-      "11111111111",
-      "22222222222",
-      "33333333333",
-      "444444444",
-      "555555555",
-      "66666666",
-    ],
+    value: ["11111111111", "22222222222", "33333333333"],
   },
   { type: "image", value: "./assets/image.png" },
 ];

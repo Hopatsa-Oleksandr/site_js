@@ -1,0 +1,26 @@
+{
+  "name": "site_js",
+  "version": "1.0.0",
+  "description": "javascript pure application",
+  "main": "index.js",
+  "scripts": {
+    "serve": "parcel ./src/index.html -p 4200 --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hopatsa-Oleksandr/site_js.git"
+  },
+  "keywords": [
+    "js",
+    "javascript"
+  ],
+  "author": "Hopatsa-Oleksandr <bc.alexg@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hopatsa-Oleksandr/site_js/issues"
+  },
+  "homepage": "https://github.com/Hopatsa-Oleksandr/site_js#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
