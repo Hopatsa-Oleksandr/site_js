@@ -1,5 +1,6 @@
 import { model } from "./model";
-import { title, text, columns, image } from "./templates";
+// import { title, text, columns, image } from "./templates";
+import { templates } from "./templates";
 import "./styles/main.css";
 // const model = [
 //   { type: "title", value: "Hello World from JS" },
@@ -13,32 +14,38 @@ import "./styles/main.css";
 
 const $site = document.querySelector("#site"); //DOM елемент
 
+const key = "title";
+console.log(templates[key]);
+// console.log(templates["title"]({ value: "text" }));
+
 model.forEach((block) => {
   let html = "";
   //   console.log(block);
-  if (block.type === "title") {
-    html = title(block);
-  } else if (block.type === "text") {
-    html = text(block);
-  } else if (block.type === "columns") {
-    html = columns(block);
-    //    <div class="row">
-    //       <div class="col-sm">
-    //         {block.value}
-    //       </div>
-    //       <div class="col-sm">
-    //         {block.value}
-    //       </div>
-    //       <div class="col-sm">
-    //         {block.value}
-    //       </div>
-    //     </div>
-    //   `;
-  } else if (block.type === "image") {
-    html = image(block);
+  // if (block.type === "title") {
+  //   html = title(block);
+  // } else if (block.type === "text") {
+  //   html = text(block);
+  // } else if (block.type === "columns") {
+  //   html = columns(block);
+  //   //    <div class="row">
+  //   //       <div class="col-sm">
+  //   //         {block.value}
+  //   //       </div>
+  //   //       <div class="col-sm">
+  //   //         {block.value}
+  //   //       </div>
+  //   //       <div class="col-sm">
+  //   //         {block.value}
+  //   //       </div>
+  //   //     </div>
+  //   //   `;
+  // } else if (block.type === "image") {
+  //   html = image(block);
+  // }
+  const toHTML = templates[block.type];
+  if (toHTML) {
+    $site.insertAdjacentHTML("beforeend", toHTML(block));
   }
-
-  $site.insertAdjacentHTML("beforeend", html);
 });
 
 // function title(block) {
