@@ -1,3 +1,5 @@
+//templates файл больше не нужен
+
 import { row, col, css } from "./utils";
 function title(block) {
   const { tag = "h1", styles } = block.options;
@@ -53,10 +55,10 @@ function columns(block) {
 }
 
 function image(block) {
-  const { imageStyles, alt, styles } = block.options;
+  const { imageStyles: is, alt, styles } = block.options;
   // const { tag = "h1", styles } = block.options;
   return row(
-    `<img src="${block.value}" alt="${alt}" styles="${css(imageStyles)}"/>`,
+    `<img src="${block.value}" alt="${alt}" style="${css(is)}"/>`,
     css(styles)
   );
 }
