@@ -1,29 +1,54 @@
-export class Sidebar {
-  constructor(selector) {
-    this.$el = document.querySelector(selector);
+import { block } from "../utils";
+import { TextBlock, TitleBlock } from "./blocks";
 
-    this.Init();
+export class Sidebar {
+  constructor(selector, updateCallback) {
+    this.$el = document.querySelector(selector);
+    this.update = updateCallback;
+
+    this.init();
   }
-  Init() {
+  init() {
     this.$el.insertAdjacentHTML("afterbegin", this.template);
+    this.$el.addEventListener("submit", this.add.bind(this));
   }
+
+  // get template() {
+  //   return block("text");
+  // }
 
   get template() {
-    return block("text");
+    // return [block("text"), block("title")].join("");
+    return [block("text")];
   }
-}
 
-export function block(type) {
-  return `
-    <form name ="${type}">
-    <h5>${type}</h5>
-    <div class ="form-group">
-    <input class ="form-control form-control-sm name="value" placeholder="value"></div>
-    <div>
-    <div class="form-group">
-    <input class ="form-control form-control-sm" name="styles" placeholder="styles"></div>
-    <button type="submit" class="btn btn-primary btn-sm">Добавить</button>
-    </form>
-    <hr />
-    `;
+  add(event) {
+    event.preventDefault();
+    // console.log(event.target);
+
+    const type = event.target.name;
+    const value = event.target.value.value;
+    const styles = event.target.styles.value;
+
+    // debugger;
+
+    // let newBlock;
+
+    //Тернарное выражение
+    const newBlock =
+      type === "text"
+        ? new TextBlock(value, { styles })
+        : new TitleBlock(value, { styles });
+
+    // if (type === "text") {
+    //   newBlock = new TextBlock(value, { styles });
+    // } else {
+    //   newBlock = new TitleBlock(value, { styles });
+    // }
+    // debugger;
+    this.update(newBlock);
+
+    event.target.value.value = "";
+    event.target.styles.value = "";
+  }
 }

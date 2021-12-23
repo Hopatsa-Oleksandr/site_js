@@ -9,6 +9,7 @@ export function col(content) {
 //Утилита для преобразование файла обьекта стилей
 
 export function css(styles = {}) {
+  if (typeof styles === "string") return styles;
   //   const keys = Object.keys(styles);
   //   //   console.log(keys);
   //   const array = keys.map((key) => {
@@ -18,4 +19,19 @@ export function css(styles = {}) {
 
   const toString = (key) => `${key}: ${styles[key]}`;
   return Object.keys(styles).map(toString).join(";");
+}
+
+export function block(type) {
+  return `
+    <form name ="${type}">
+    <h5>${type}</h5>
+    <div class ="form-group">
+    <input class ="form-control form-control-sm" name="value" placeholder="value"></div>
+    <div>
+    <div class="form-group">
+    <input class="form-control form-control-sm" name="styles" placeholder="styles" margin-top:10px;="" margin-bottom:10px="" style="margin-top: 10px;margin-bottom: 10px;"></div>
+    <button type="submit" class="btn btn-primary btn-sm">Добавить</button>
+    </form>
+    <hr />
+    `;
 }

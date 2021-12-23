@@ -1,9 +1,11 @@
 import { model } from "./model";
-import { Site } from "./classes/site";
+// import { Site } from "./classes/site";
 // import { title, text, columns, image } from "./templates";
 // import { templates } from "./templates";
 import "./styles/main.css";
-import { Sidebar } from "./classes/sidebar";
+import { App } from "/classes/app";
+new App(model).init();
+// import { Sidebar } from "./classes/sidebar";
 // const model = [
 //   { type: "title", value: "Hello World from JS" },
 //   { type: "text", value: "here we go with some text" },
@@ -14,11 +16,16 @@ import { Sidebar } from "./classes/sidebar";
 //   { type: "image", value: "./assets/image.png" },
 // ];
 
-const site = new Site("#site");
+// const site = new Site("#site");
 
-site.render(model);
+// site.render(model);
 
-const sidebar = new Sidebar("#panel");
+// const updateCallback = (newBlock) => {
+//   model.push(newBlock);
+//   site.render(model);
+// };
+
+// new Sidebar("#panel", updateCallback);
 // const $site = document.querySelector("#site"); //DOM елемент
 
 // const key = "title";

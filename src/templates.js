@@ -12,7 +12,7 @@ function title(block) {
   //         </div>
   //       </div>
   //   `;
-  return row(col(`<${tag}>${block.value}</${tag}>`), css(block.options.styles));
+  return row(col(`<${tag}>${block.value}</${tag}>`), css(styles));
 }
 
 function text(block) {
@@ -26,7 +26,7 @@ function text(block) {
   //         </div>
   //       </div>
   //     `;
-  return row(col(`<p>${block.value}</p>`), css(block.options.styles));
+  return row(col(`<p>${block.value}</p>`), css(styles));
 }
 
 function columns(block) {
@@ -51,7 +51,7 @@ function columns(block) {
   //   ${html.join("")}
   // </div>`;
   const html = block.value.map(col).join("");
-  return row(html, css(block.options.styles));
+  return row(html, css(styles));
 }
 
 function image(block) {
